@@ -1,0 +1,45 @@
+app-id: si.biolab.orange
+runtime: org.freedesktop.Platform
+runtime-version: '24.08'
+sdk: org.freedesktop.Sdk
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.rust-stable
+base: com.riverbankcomputing.PyQt.BaseApp
+base-version: '6.9'
+cleanup-commands:
+  - /app/cleanup-BaseApp.sh
+command: /app/run_orange.sh
+finish-args:
+  - --share=ipc
+  - --share=network
+  - --socket=x11
+  - --socket=wayland
+  - --filesystem=host
+  - --device=dri
+  - --own-name=si.biolab.orange
+  - --filesystem=home # which part of the file system can be accessed by the app
+  # I don't know what the following arguments do
+  - --filesystem=xdg-run/dconf
+  - --filesystem=~/.config/dconf:ro
+  - --talk-name=ca.desrt.dconf
+  - --env=DCONF_USER_CONFIG_DIR=.config/dconf
+  - --env=QTWEBENGINEPROCESS_PATH=/app/bin/QtWebEngineProcess
+modules:
+  - uv_rust.yaml
+  - name: env-files
+    buildsystem: simple
+    sources:
+      - type: file
+        path: ./pyproject.toml
+      - type: file
+        path: ./uv.lock
+      - type: file
+        path: ./run_orange.sh
+    build-commands:
+      - install -D pyproject.toml /app/pyproject.toml
+      - install -D uv.lock /app/uv.lock
+      - install -D run_orange.sh /app/run_orange.sh
+
+#rename-icon: Orange_icon # Image will renamed to match the app-id convention
+#rename-appdata-file: orange.appdata.xml
+#rename-desktop-file: orange.desktop # launcher for the desktop

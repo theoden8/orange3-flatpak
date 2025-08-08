@@ -1,0 +1,7 @@
+.venv
+/.flatpak-builder
+/build-dir
+/.vscode
+/.git
+*.lock
+.*.swp

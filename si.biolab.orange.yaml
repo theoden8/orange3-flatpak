@@ -14,10 +14,8 @@ finish-args:
   - --share=network
   - --socket=x11
   - --socket=wayland
-  - --filesystem=host
   - --device=dri
   - --own-name=si.biolab.orange
-  - --filesystem=home # which part of the file system can be accessed by the app
   # I don't know what the following arguments do
   - --filesystem=xdg-run/dconf
   - --filesystem=~/.config/dconf:ro

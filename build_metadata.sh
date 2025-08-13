@@ -10,6 +10,8 @@ if ! test -e "flatpak-cargo-generator.py"; then
   wget https://raw.githubusercontent.com/flatpak/flatpak-builder-tools/refs/heads/master/cargo/flatpak-cargo-generator.py -O flatpak-cargo-generator.py
 fi
 
+uv lock
+cargo generate-lockfile
 uv run python flatpak-cargo-generator.py --yaml -o uv_rust.yaml Cargo.lock
 cat uv_rust.yaml | {
 echo "

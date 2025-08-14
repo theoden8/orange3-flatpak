@@ -17,10 +17,6 @@ finish-args:
   - --device=dri
   - --own-name=si.biolab.orange
   # I don't know what the following arguments do
-  - --filesystem=xdg-run/dconf
-  - --filesystem=~/.config/dconf:ro
-  - --talk-name=ca.desrt.dconf
-  - --env=DCONF_USER_CONFIG_DIR=.config/dconf
   - --env=QTWEBENGINEPROCESS_PATH=/app/bin/QtWebEngineProcess
 modules:
   - uv_rust.yaml

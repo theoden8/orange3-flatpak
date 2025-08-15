@@ -1,3 +1,10 @@
+# affiliation
+
+this is unofficial flatpak
+
+* https://github.com/biolab/orange3-installers/issues/53
+* https://github.com/biolab/orange3/issues/5403
+
 # instructions
 
 ```bash

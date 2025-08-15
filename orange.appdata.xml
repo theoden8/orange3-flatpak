@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component type="desktop">
+  <id>si.biolab.orange</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <name>Orange</name>
+  <summary>Data visualization and analysis for novice and expert users</summary>
+  <description>
+    <p>Orange is an open-source data visualization and analysis tool featuring interactive workflows, visual programming, and a large collection of data mining and machine learning widgets.</p>
+  </description>
+  <project_license>GPL-3.0-only</project_license>
+  <url type="homepage">https://orangedatamining.com/</url>
+  <url type="bugtracker">https://github.com/biolab/orange3/issues</url>
+  <developer_name>Biolab.si</developer_name>
+  <provides>
+    <binary>si.biolab.orange</binary>
+  </provides>
+  <launchable type="desktop-id">si.biolab.orange.desktop</launchable>
+  <icon>orange-canvas</icon>
+</component>

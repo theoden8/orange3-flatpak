@@ -31,11 +31,14 @@ modules:
         path: ./run_orange.sh
       - type: file
         path: ./orange.desktop
+      #- type: file
+      #  path: ./orange.appdata.xml
     build-commands:
       - install -D pyproject.toml /app/pyproject.toml
       - install -D uv.lock /app/uv.lock
       - install -D run_orange.sh /app/run_orange.sh
       - install -D orange.desktop /app/share/applications/orange.desktop
+      #- install -D orange.appdata.xml /app/share/metainfo/orange.appdata.xml
 
 #rename-icon: Orange_icon # Image will renamed to match the app-id convention
 #rename-appdata-file: orange.appdata.xml

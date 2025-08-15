@@ -1,0 +1,8 @@
+[Desktop Entry]
+#Version=1.0
+Type=Application
+Name=Orange
+Exec=/app/run_orange.sh
+Terminal=false
+Icon=orange-canvas
+Categories=Development;Education;

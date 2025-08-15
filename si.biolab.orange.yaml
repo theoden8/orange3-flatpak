@@ -29,11 +29,14 @@ modules:
         path: ./uv.lock
       - type: file
         path: ./run_orange.sh
+      - type: file
+        path: ./orange.desktop
     build-commands:
       - install -D pyproject.toml /app/pyproject.toml
       - install -D uv.lock /app/uv.lock
       - install -D run_orange.sh /app/run_orange.sh
+      - install -D orange.desktop /app/share/applications/orange.desktop
 
 #rename-icon: Orange_icon # Image will renamed to match the app-id convention
 #rename-appdata-file: orange.appdata.xml
-#rename-desktop-file: orange.desktop # launcher for the desktop
+rename-desktop-file: orange.desktop

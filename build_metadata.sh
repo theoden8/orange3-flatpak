@@ -11,7 +11,7 @@ if ! test -e "flatpak-cargo-generator.py"; then
 fi
 
 uv lock
-if ! test -v "uv"; then
+if ! test -e "uv-git"; then
   (git clone https://github.com/astral-sh/uv uv-git && cd uv-git && git checkout 0.8.11)
 fi
 uv run python flatpak-cargo-generator.py --yaml -o uv.yaml uv-git/Cargo.lock

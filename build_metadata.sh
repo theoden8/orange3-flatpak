@@ -12,19 +12,4 @@ fi
 
 uv lock
 cargo generate-lockfile
-uv run python flatpak-cargo-generator.py --yaml -o uv_rust.yaml Cargo.lock
-cat uv_rust.yaml | {
-echo "
-name: uv
-buildsystem: simple
-build-options:
-  append-path: /usr/lib/sdk/rust-stable/bin
-  build-args:
-    - --share=network
-build-commands:
-  - /bin/ls
-  - cargo build --release --locked --manifest-path flatpak-cargo/git/uv-ce37286/Cargo.toml
-  - install -Dm755 flatpak-cargo/git/uv-ce37286/target/release/uv /app/uv
-sources:
-"; cat
-} > uv_rust.yaml.tmp && mv -v uv_rust.yaml{.tmp,}
+uv run python flatpak-cargo-generator.py --yaml -t -o uv_rust.yaml Cargo.lock

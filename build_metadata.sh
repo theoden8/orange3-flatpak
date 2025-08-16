@@ -23,8 +23,8 @@ build-options:
     - --share=network
 build-commands:
   - /bin/ls
-  - cargo build --release --locked --manifest-path flatpak-cargo/git/uv-aec90f0/Cargo.toml
-  - install -Dm755 flatpak-cargo/git/uv-aec90f0/target/release/uv /app/uv
+  - cargo build --release --locked --manifest-path flatpak-cargo/git/uv-ce37286/Cargo.toml
+  - install -Dm755 flatpak-cargo/git/uv-ce37286/target/release/uv /app/uv
 sources:
 "; cat
 } > uv_rust.yaml.tmp && mv -v uv_rust.yaml{.tmp,}

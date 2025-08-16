@@ -8,14 +8,13 @@ base: com.riverbankcomputing.PyQt.BaseApp
 base-version: '6.9'
 cleanup-commands:
   - /app/cleanup-BaseApp.sh
-command: /app/run_orange.sh
+command: run_orange.sh
 finish-args:
   - --share=ipc
   - --share=network
-  - --socket=x11
+  - --socket=fallback-x11
   - --socket=wayland
   - --device=dri
-  - --own-name=si.biolab.orange
   # I don't know what the following arguments do
   - --env=QTWEBENGINEPROCESS_PATH=/app/bin/QtWebEngineProcess
 modules:
@@ -27,9 +26,9 @@ modules:
         CARGO_HOME: /run/build/uv/cargo
         CARGO_NET_OFFLINE: 'true'
     build-commands:
-      - cargo fetch --offline --manifest-path Cargo.toml -v
-      - cargo build --offline --release --locked -v
-      - install -Dm755 target/release/uv /app/uv
+      - cargo fetch --offline --manifest-path Cargo.toml
+      - cargo build --offline --release --locked
+      - install -Dm755 target/release/uv /app/bin/uv
     sources:
       - type: git
         url: https://github.com/astral-sh/uv.git
@@ -51,7 +50,7 @@ modules:
     build-commands:
       - install -D pyproject.toml /app/pyproject.toml
       - install -D uv.lock /app/uv.lock
-      - install -D run_orange.sh /app/run_orange.sh
+      - install -D run_orange.sh /app/bin/run_orange.sh
       - install -D orange.desktop /app/share/applications/orange.desktop
       #- install -D orange.appdata.xml /app/share/metainfo/orange.appdata.xml
 

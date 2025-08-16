@@ -29,6 +29,7 @@ modules:
     build-commands:
       - cargo fetch --offline --manifest-path Cargo.toml -v
       - cargo build --offline --release --locked --all-features -v
+      - install -Dm755 target/release/uv /app/uv
     sources:
       - type: git
         url: https://github.com/astral-sh/uv.git

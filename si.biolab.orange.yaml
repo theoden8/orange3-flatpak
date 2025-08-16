@@ -26,24 +26,15 @@ modules:
       env:
         CARGO_HOME: /run/build/uv/cargo
         CARGO_NET_OFFLINE: 'true'
-    #  build-args:
-    #    - --share=network
     build-commands:
-      - /bin/pwd
-      - /bin/ls
       - cargo fetch --offline --manifest-path Cargo.toml -v
-      - cargo build --offline --release --frozen --all-features -v
-      #- cargo build --offline --release --locked --frozen --manifest-path flatpak-cargo/git/uv-ce37286/Cargo.toml -v
-      #- install -Dm755 flatpak-cargo/git/uv-ce37286/target/release/uv /app/uv
+      - cargo build --offline --release --locked -v
+      - install -Dm755 target/release/uv /app/uv
     sources:
-      - type: file
-        path: "Cargo.toml"
-      - type: file
-        path: "Cargo.lock"
-      - type: dir
-        path: "src"
-        dest: src
-      - uv_rust.yaml
+      - type: git
+        url: https://github.com/astral-sh/uv.git
+        tag: 0.8.11
+      - uv.yaml
   - name: env-files
     buildsystem: simple
     sources:

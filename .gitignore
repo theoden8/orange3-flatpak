@@ -4,3 +4,4 @@ build-dir
 *.tar.gz
 .vscode
 .*.swp
+/uv-git

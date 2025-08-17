@@ -14,7 +14,7 @@ cd "${WORK_DIR}"
 
 # Reuse existing venv if present, otherwise create it explicitly at VENV_DIR
 if [ ! -x "${VENV_DIR}/bin/python" ]; then
-  "${APP_DIR}/uv" venv --system-site-packages "${VENV_DIR}"
+  "${APP_DIR}/bin/uv" venv --system-site-packages "${VENV_DIR}"
 fi
 
-"${APP_DIR}/uv" run --no-group dev --locked python -m Orange.canvas
+"${APP_DIR}/bin/uv" run --no-group dev --locked python -m Orange.canvas
